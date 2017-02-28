@@ -29,16 +29,16 @@ namespace BizSpark
 
                 await context.PostAsync($"There are teams.");
             }
-            else if (activity.Text.StartsWith("give me"))
+            else if (activity.Text.Contains("How can I activate")|| activity.Text.Contains("activate"))
             {
-
+            
 
                 reply2.Attachments.Add(new Attachment()
                 {
                     
-                ContentUrl = "https://www.photobox.co.uk/my/photo/full?photo_id=21616203475",
-                    ContentType = "image/png",
-                    Name = "QualityControl.png"
+                ContentUrl = "https://s-media-cache-ak0.pinimg.com/originals/ff/2b/b6/ff2bb6fa6a49798b3630dcbe551b2171.jpg",
+                    ContentType = "image/jpg",
+                    Name = "QualityControl.jpg"
                 });
                 await context.PostAsync(reply2);
                 context.Wait(ActivityReceivedAsync);
