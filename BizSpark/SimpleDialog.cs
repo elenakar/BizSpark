@@ -44,6 +44,26 @@ namespace BizSpark
                 context.Wait(ActivityReceivedAsync);
             
            }
+            else if (activity.Text.Contains("How can I sign in") || activity.Text.Contains("sign in link"))
+            {
+
+                List<CardAction> buttons = new List<CardAction>();
+                CardAction ca = new CardAction()
+                {
+                    Title = "Sign up to BizSpark",
+                    Type = "signin",
+                    Value = "https://bizspark.microsoft.com/en-US/Account/SignIn"
+                };
+                buttons.Add(ca);
+                SigninCard card = new SigninCard()
+                {
+                    Text = "If you want to join BizSpark please press the button below",
+                    Buttons = buttons
+                };
+                reply2.Attachments.Add(card.ToAttachment());
+                await context.PostAsync(reply2);
+                //context.Wait(ActivityReceivedAsync);
+            }
             else
             {
 
