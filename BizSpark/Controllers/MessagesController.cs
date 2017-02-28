@@ -14,6 +14,7 @@ namespace BizSpark
     [BotAuthentication]
     public class MessagesController : ApiController
     {
+        // Test comment
         /// <summary>
         /// POST: api/Messages
         /// Receive a message from a user and reply to it
