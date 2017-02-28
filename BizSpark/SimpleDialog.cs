@@ -35,7 +35,8 @@ namespace BizSpark
 
                 reply2.Attachments.Add(new Attachment()
                 {
-                    ContentUrl = "http://intelligentlabs.co.uk/images/about/qualitycontrol.png",
+                    
+                ContentUrl = "https://www.photobox.co.uk/my/photo/full?photo_id=21616203475",
                     ContentType = "image/png",
                     Name = "QualityControl.png"
                 });
