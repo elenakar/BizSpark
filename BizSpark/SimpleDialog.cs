@@ -23,27 +23,27 @@ namespace BizSpark
             var activity = await result as Activity;
             var reply2 = activity.CreateReply();
             reply2.Attachments = new List<Attachment>();
-
+            
             if (activity.Text.Contains("how many teams"))
             {
 
                 await context.PostAsync($"There are teams.");
             }
-            else if (activity.Text.Contains("How can I activate")|| activity.Text.Contains("activate"))
+            else if (activity.Text.Contains("How can I activate") || activity.Text.Contains("activate"))
             {
-            
+
 
                 reply2.Attachments.Add(new Attachment()
                 {
-                    
-                ContentUrl = "https://s-media-cache-ak0.pinimg.com/originals/ff/2b/b6/ff2bb6fa6a49798b3630dcbe551b2171.jpg",
+
+                    ContentUrl = "https://s-media-cache-ak0.pinimg.com/originals/ff/2b/b6/ff2bb6fa6a49798b3630dcbe551b2171.jpg",
                     ContentType = "image/jpg",
                     Name = "QualityControl.jpg"
                 });
                 await context.PostAsync(reply2);
                 context.Wait(ActivityReceivedAsync);
-            
-           }
+
+            }
             else if (activity.Text.Contains("How can I sign in") || activity.Text.Contains("sign in link"))
             {
 

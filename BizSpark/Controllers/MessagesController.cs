@@ -19,10 +19,24 @@ namespace BizSpark
         /// POST: api/Messages
         /// Receive a message from a user and reply to it
         /// </summary>
+        /// 
+        private static void DeleteAllState(Activity activity)
+        {
+            BotState state = activity.GetStateClient().BotState as BotState;
+            state.DeleteStateForUser(activity.ChannelId, activity.From.Id);
+        }
+
         public async Task<HttpResponseMessage> Post([FromBody]Activity activity)
         {
             if (activity.Type == ActivityTypes.Message)
             {
+                var text = activity.Text.ToLower();
+                //if user types reset, remove the saved state
+                if (text.Contains("reset"))
+                {
+                    DeleteAllState(activity);
+                }
+                
                 await Conversation.SendAsync(activity, () => new SimpleDialog());
             }
             else
